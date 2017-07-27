@@ -1,3 +1,4 @@
+#include "termColors.hpp"
 #include <cmath>
 #include <iostream>
 
@@ -34,16 +35,22 @@ int main()
   std::cin >> ascent_target;
 
   double lift_med, asc;
-  for (int i = 0; i < 20; ++i)
+  // for (int i = 0; i < 20; ++i)
+  do
   {
     lift_med = (lift_min + lift_max) / 2;
     asc = calcAscent(lift_med, chute, payload, balloon);
+
     if (asc > ascent_target)
       lift_max = lift_med;
-    else
+    else if (asc < ascent_target)
       lift_min = lift_med;
-  }
 
-  std::cout << "lift required : " << lift_med << " lbs" << std::endl;
-  std::cout << "ascent rate : " << asc << " m/s" << std::endl;
+  } while (fabs(ascent_target - asc) >= .001);
+
+  std::cout << std::endl
+            << RED << lift_med << " lbs" << RESET
+            << " of nozzle lift are required" << std::endl
+            << "to achieve " << GREEN << asc << " m/s" << RESET
+            << " ascent rate" << std::endl;
 }
