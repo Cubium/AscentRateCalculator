@@ -43,6 +43,7 @@ int main()
     else
       lift_min = lift_med;
   }
-  std::cout << "lift : " << lift_med << std::endl;
-  std::cout << "ascent : " << asc << std::endl;
+
+  std::cout << "lift required : " << lift_med << " lbs" << std::endl;
+  std::cout << "ascent rate : " << asc << " m/s" << std::endl;
 }
