@@ -1,38 +1,36 @@
 #include "termColors.hpp"
-#include <cmath>
+#include "ARCfuncs.hpp"
 #include <iostream>
 
-double calcAscent(double lift, double chute, double payload, double balloon)
-{
-  double top = 465.878 * sqrt((lift * 454.0) -
-                              ((chute / 16.0 * 454.0) + (payload * 454.0)));
-  double bot =
-    pow(((lift * 454.0) - ((chute / 16.0 * 454.0) + (payload * 454.0))) +
-          balloon + (payload * 454) + (chute / 16.0 * 454.0),
-        1.0 / 3.0);
-
-  double ft_min = top / bot;
-  double m_s = ft_min * .00508;
-
-  return m_s;
-}
-
 int main()
-{
-  double lift_min, lift_max, chute, payload, balloon, ascent_target = 0;
+{  
+  double chute = 0.33;
+  double balloon = 3.8;
+  double payload = 6.0;
+  double lift_min = 0.0;
+  double lift_max = 10.0;
+  double ascent_target = 7.0;
 
-  std::cout << "Parachute Weight (.33 lbs) : ";
-  std::cin >> chute;
-  std::cout << "Balloon Weight (3.8 lbs) : ";
-  std::cin >> balloon;
-  std::cout << "Payload Weight (lbs) : ";
-  std::cin >> payload;
-  std::cout << "Estimate MAX Balloon Lift (lbs) : ";
-  std::cin >> lift_max;
-  std::cout << "Estimate MIN Balloon Lift (lbs) : ";
-  std::cin >> lift_min;
-  std::cout << "Target Ascent Rate (m/s) : ";
-  std::cin >> ascent_target;
+  std::cout << "Enter the following values as floating point numbers in American pounds (lbs)\n";
+
+  std::cout << BOLDWHITE 
+    << "\nParachute Weight" << RESET << " (press enter for default of .33 lbs) : ";
+  chute = getInput(chute);
+
+  std::cout << BOLDWHITE << "\nBalloon Weight" << RESET << " (press enter for default of 3.8 lbs) : ";
+  balloon = getInput(balloon);
+
+  std::cout << BOLDWHITE << "\nPayload Weight" << RESET <<" (press enter for default of 6.0 lbs) : ";
+  payload = getInput(payload);
+
+  std::cout << BOLDWHITE << "\nEstimate maximum balloon lift" << RESET << " (press enter for default of 10.0 lbs) : ";
+  lift_max = getInput(lift_max);
+
+  std::cout << BOLDWHITE << "\nEstimate minimum balloon lift" << RESET << " (press enter for default of 0.0 lbs) : ";
+  lift_min = getInput(lift_min);
+
+  std::cout << BOLDWHITE << "\nTarget ascent rate" << RESET << " (press enter for default of 7 m/s) : ";
+  ascent_target = getInput(ascent_target);
 
   double lift_med, asc;
   // for (int i = 0; i < 20; ++i)
