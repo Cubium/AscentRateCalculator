@@ -3,7 +3,7 @@ OBJS2 = AscentRateCalc.cpp
 CC = g++
 DEBUG_FLAGS = -O0 -g3
 RELEASE_FLAGS = -O3
-FLAGS = -std=c++17 -Wall -Wextra -Werror
+FLAGS = -std=c++14 -Wall -Wextra -Werror
 
 make: release
 

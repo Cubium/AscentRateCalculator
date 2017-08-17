@@ -11,7 +11,7 @@ int main()
   double lift_max = 10.0;
   double ascent_target = 7.0;
 
-  std::cout << "Enter the following values as floating point numbers in American pounds (lbs)\n";
+  std::cout << WHITE << "Enter the following values as floating point numbers in American pounds (lbs)\n";
 
   std::cout << BOLDWHITE 
     << "\nParachute Weight" << RESET << " (press enter for default of .33 lbs) : ";
@@ -33,7 +33,13 @@ int main()
   ascent_target = getInput(ascent_target);
 
   double lift_med, asc;
-  // for (int i = 0; i < 20; ++i)
+
+  while(calcAscent(lift_max, chute, payload, balloon) < ascent_target)
+    lift_max += 5;
+
+  while(calcAscent(lift_min, chute, payload, balloon) > ascent_target)
+    lift_min -= 5;
+
   do
   {
     lift_med = (lift_min + lift_max) / 2;
@@ -47,8 +53,8 @@ int main()
   } while (fabs(ascent_target - asc) >= .001);
 
   std::cout << std::endl
-            << RED << lift_med << " lbs" << RESET
-            << " of nozzle lift are required" << std::endl
-            << "to achieve " << GREEN << asc << " m/s" << RESET
-            << " ascent rate" << std::endl;
+    << RED << lift_med << " lbs" << RESET
+    << " of nozzle lift are required" << std::endl
+    << "to achieve " << GREEN << asc << " m/s" << RESET
+    << " ascent rate" << std::endl;
 }
