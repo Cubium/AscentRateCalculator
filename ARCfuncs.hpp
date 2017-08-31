@@ -1,9 +1,9 @@
 #ifndef ARCFUNCS
 #define ARCFUNCS
 
+#include <cmath>
 #include <iostream>
 #include <sstream>
-#include <cmath>
 
 double getInput(double defaultVal)
 {
