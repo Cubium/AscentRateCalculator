@@ -16,4 +16,4 @@ debug: $(OBJS1) $(OBJS2)
 	$(CC) $(DEBUG_FLAGS) $(FLAGS) $(OBJS2) -o ascent_debug.out
 
 clean:
-	rm lift_calculator.out ascent_calculator.out lift_debug.out ascent_debug.out
+	rm *.out
