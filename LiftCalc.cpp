@@ -8,7 +8,7 @@ int main()
   double balloon = 3.8;
   double payload = 6.0;
   double lift_min = 0.0;
-  double lift_max = 10.0;
+  double lift_max = 20.0;
   double ascent_target = 7.0;
 
   std::cout << WHITE << "Enter the following values as floating point numbers in American pounds (lbs)\n";
@@ -23,7 +23,7 @@ int main()
   std::cout << BOLDWHITE << "\nPayload Weight" << RESET <<" (press enter for default of 6.0 lbs) : ";
   payload = getInput(payload);
 
-  std::cout << BOLDWHITE << "\nEstimate maximum balloon lift" << RESET << " (press enter for default of 10.0 lbs) : ";
+  std::cout << BOLDWHITE << "\nEstimate maximum balloon lift" << RESET << " (press enter for default of 20.0 lbs) : ";
   lift_max = getInput(lift_max);
 
   std::cout << BOLDWHITE << "\nEstimate minimum balloon lift" << RESET << " (press enter for default of 0.0 lbs) : ";
